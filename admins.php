@@ -24,7 +24,7 @@
                     <tbody>
                         <tr>
                             <td class="text-center">1</td>
-                            <td>Umair Abbas</td>
+                            <td>Fareeha Tahir</td>
                             <td>admin</td>
                             <td>admin@example.com</td>
                             <td class="text-center">
@@ -35,7 +35,7 @@
                         </tr>
                         <tr>
                             <td class="text-center">1</td>
-                            <td>Umair Abbas</td>
+                            <td>Arshia Javed</td>
                             <td>admin</td>
                             <td>admin@example.com</td>
                             <td class="text-center">
