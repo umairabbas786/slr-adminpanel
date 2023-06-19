@@ -8,7 +8,7 @@
                 <a class="block block-rounded bg-gd-dusk text-white block-link-shadow text-end" href="javascript:void(0)">
                     <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
                         <div class="d-none d-sm-block">
-                            <i class="fa fa-shopping-bag fa-2x opacity-25"></i>
+                            <i class="fa fa-user fa-2x opacity-25"></i>
                         </div>
                         <div>
                             <div class="fs-3 fw-semibold">1500</div>
@@ -21,7 +21,7 @@
                 <a class="block block-rounded bg-gd-dusk text-white block-link-shadow text-end" href="javascript:void(0)">
                     <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
                         <div class="d-none d-sm-block">
-                            <i class="fa fa-wallet fa-2x opacity-25"></i>
+                            <i class="fa fa-user fa-2x opacity-25"></i>
                         </div>
                         <div>
                             <div class="fs-3 fw-semibold">120</div>
@@ -34,7 +34,7 @@
                 <a class="block block-rounded bg-gd-dusk text-white block-link-shadow text-end" href="javascript:void(0)">
                     <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
                         <div class="d-none d-sm-block">
-                            <i class="fa fa-envelope-open fa-2x opacity-25"></i>
+                            <i class="fa fa-user fa-2x opacity-25"></i>
                         </div>
                         <div>
                             <div class="fs-3 fw-semibold">15</div>
