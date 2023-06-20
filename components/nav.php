@@ -24,7 +24,7 @@
                             <i class="fa fa-fw fa-wrench opacity-25"></i>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1" href="login.php">
+                        <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1" href="?logout=true">
                             <span>Sign Out</span>
                             <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
                         </a>
