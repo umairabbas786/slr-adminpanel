@@ -1,4 +1,52 @@
 <?php include "components/header.php"; ?>
+<?php 
+    if(isset($_POST['update_profile'])){
+        $name = $_POST['name'];
+        $s = "update admins set name = '$name' where id = '$id'";
+        $rr = $conn->query($s);
+        if($rr){
+            $msg = "Profile Updated Successfully";
+            $id = $_SESSION['admin'];
+        $sql = "select * from admins where id = '$id'";
+        $r = $conn->query($sql);
+        $admin = mysqli_fetch_assoc($r);
+        }
+        else{
+            $msg = "Something Went Wrong";
+        }
+    }
+    $msgg = "";
+    $errorr = "";
+    if(isset($_POST['update_password'])){
+        $curr = $_POST['curr'];
+        $new = $_POST['new'];
+        $confirm = $_POST['confirm'];
+        
+        if($admin['password'] === $curr){
+            if($curr === $new){
+                $errorr = "Please Enter Unique Password";
+            }
+            if($new === $confirm){
+                $s = "update admins set password = '$new' where id = '$id'";
+                $rr = $conn->query($s);
+                if($rr){
+                    $msgg = "PAssword updated successfully";
+                }
+                else{
+                    $errorr = "Something Went Wrong";
+                }
+            }
+            else{
+                $errorr = "Password not Matched";
+            }
+        }
+        else{
+            $errorr = "Current Password is Wrong";
+        }
+        
+    }
+
+?>
 <?php include "components/sideNav.php"; ?>
 <?php include "components/nav.php"; ?>
 <main id="main-container">
@@ -10,28 +58,34 @@
                 </h3>
             </div>
             <div class="block-content">
-                <form action="be_pages_generic_profile.edit.html" method="POST" enctype="multipart/form-data" onsubmit="return false;">
+                <form action="" method="POST">
                     <div class="row items-push">
                         <div class="col-lg-3">
                             <p class="text-muted">
-                                Your account’s vital info.
+                                Your account’s vital info. <?php echo $id;?>
                             </p>
                         </div>
                         <div class="col-lg-7 offset-lg-1">
-                            <div class="mb-4">
-                                <label class="form-label" for="profile-settings-username">Username</label>
-                                <input type="text" class="form-control form-control-lg" id="profile-settings-username" name="profile-settings-username" placeholder="Enter your username.." value="admin">
-                            </div>
+                            <?php if ($error != '') { ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $error;?>
+                        </div>
+                    <?php } ?>
+                    <?php if ($msg != '') { ?>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $msg;?>
+                        </div>
+                    <?php } ?>
                             <div class="mb-4">
                                 <label class="form-label" for="profile-settings-name">Name</label>
-                                <input type="text" class="form-control form-control-lg" id="profile-settings-name" name="profile-settings-name" placeholder="Enter your name.." value="umair abbas">
+                                <input type="text" class="form-control form-control-lg" id="profile-settings-name" name="name" placeholder="Enter your name.." value="<?php echo $admin['name'];?>">
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="profile-settings-email">Email Address</label>
-                                <input type="email" class="form-control form-control-lg" id="profile-settings-email" name="profile-settings-email" placeholder="Enter your email.." value="admin@example.com">
+                                <input type="email" disabled class="form-control form-control-lg" id="profile-settings-email" name="email" placeholder="Enter your email.." value="<?php echo $admin['email'];?>">
                             </div>
                             <div class="mb-4">
-                                <button type="submit" class="btn btn-alt-primary">Update</button>
+                                <button type="submit" name="update_profile" class="btn btn-alt-primary">Update</button>
                             </div>
                         </div>
                     </div>
@@ -48,7 +102,7 @@
                 </h3>
             </div>
             <div class="block-content">
-                <form action="be_pages_generic_profile.edit.html" method="POST" onsubmit="return false;">
+                <form action="" method="POST">
                     <div class="row items-push">
                         <div class="col-lg-3">
                             <p class="text-muted">
@@ -56,20 +110,30 @@
                             </p>
                         </div>
                         <div class="col-lg-7 offset-lg-1">
+                            <?php if ($errorr != '') { ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $errorr;?>
+                        </div>
+                    <?php } ?>
+                    <?php if ($msgg != '') { ?>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $msgg;?>
+                        </div>
+                    <?php } ?>
                             <div class="mb-4">
                                 <label class="form-label" for="profile-settings-password">Current Password</label>
-                                <input type="password" class="form-control form-control-lg" id="profile-settings-password" name="profile-settings-password">
+                                <input type="password" class="form-control form-control-lg" id="profile-settings-password" required name="curr">
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="profile-settings-password-new">New Password</label>
-                                <input type="password" class="form-control form-control-lg" id="profile-settings-password-new" name="profile-settings-password-new">
+                                <input type="password" class="form-control form-control-lg" min="6" id="profile-settings-password-new" required name="new">
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="profile-settings-password-new-confirm">Confirm New Password</label>
-                                <input type="password" class="form-control form-control-lg" id="profile-settings-password-new-confirm" name="profile-settings-password-new-confirm">
+                                <input type="password" class="form-control form-control-lg" min="6" id="profile-settings-password-new-confirm" required name="confirm">
                             </div>
                             <div class="mb-4">
-                                <button type="submit" class="btn btn-alt-primary">Update</button>
+                                <button type="submit" name="update_password" class="btn btn-alt-primary">Update</button>
                             </div>
                         </div>
                     </div>

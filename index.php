@@ -11,7 +11,12 @@
                             <i class="fa fa-user fa-2x opacity-25"></i>
                         </div>
                         <div>
-                            <div class="fs-3 fw-semibold">1500</div>
+                            <?php 
+                                $s = "select count(id) from users where user_type = 'STUDENT'";
+                                $rr = $conn->query($s);
+                                $row = mysqli_fetch_assoc($rr);
+                            ?>
+                            <div class="fs-3 fw-semibold"><?php echo $row['count(id)'];?></div>
                             <div class="fs-sm fw-semibold text-uppercase">Students</div>
                         </div>
                     </div>
@@ -24,7 +29,12 @@
                             <i class="fa fa-user fa-2x opacity-25"></i>
                         </div>
                         <div>
-                            <div class="fs-3 fw-semibold">120</div>
+                            <?php 
+                                $s = "select count(id) from users where user_type = 'TEACHER'";
+                                $rr = $conn->query($s);
+                                $row = mysqli_fetch_assoc($rr);
+                            ?>
+                            <div class="fs-3 fw-semibold"><?php echo $row['count(id)'];?></div>
                             <div class="fs-sm fw-semibold text-uppercase">Teachers</div>
                         </div>
                     </div>
@@ -37,7 +47,12 @@
                             <i class="fa fa-user fa-2x opacity-25"></i>
                         </div>
                         <div>
-                            <div class="fs-3 fw-semibold">15</div>
+                            <?php 
+                                $s = "select count(id) from users where user_type = 'STUDENT' and status = 1";
+                                $rr = $conn->query($s);
+                                $row = mysqli_fetch_assoc($rr);
+                            ?>
+                            <div class="fs-3 fw-semibold"><?php echo $row['count(id)'];?></div>
                             <div class="fs-sm fw-semibold text-uppercase">Approved Students</div>
                         </div>
                     </div>
@@ -50,7 +65,12 @@
                             <i class="fa fa-users fa-2x opacity-25"></i>
                         </div>
                         <div>
-                            <div class="fs-3 fw-semibold">30</div>
+                            <?php 
+                                $s = "select count(id) from users where user_type = 'TEACHER' and status = 1";
+                                $rr = $conn->query($s);
+                                $row = mysqli_fetch_assoc($rr);
+                            ?>
+                            <div class="fs-3 fw-semibold"><?php echo $row['count(id)'];?></div>
                             <div class="fs-sm fw-semibold text-uppercase">Approved Teachers</div>
                         </div>
                     </div>
@@ -63,7 +83,12 @@
                             <i class="fa fa-users fa-2x opacity-25"></i>
                         </div>
                         <div>
-                            <div class="fs-3 fw-semibold">50</div>
+                            <?php 
+                                $s = "select count(id) from posts";
+                                $rr = $conn->query($s);
+                                $row = mysqli_fetch_assoc($rr);
+                            ?>
+                            <div class="fs-3 fw-semibold"><?php echo $row['count(id)'];?></div>
                             <div class="fs-sm fw-semibold text-uppercase">Posts</div>
                         </div>
                     </div>
@@ -76,7 +101,12 @@
                             <i class="fa fa-users fa-2x opacity-25"></i>
                         </div>
                         <div>
-                            <div class="fs-3 fw-semibold">30</div>
+                            <?php 
+                                $s = "select count(id) from posts where status = 1";
+                                $rr = $conn->query($s);
+                                $row = mysqli_fetch_assoc($rr);
+                            ?>
+                            <div class="fs-3 fw-semibold"><?php echo $row['count(id)'];?></div>
                             <div class="fs-sm fw-semibold text-uppercase">Approved Posts</div>
                         </div>
                     </div>
