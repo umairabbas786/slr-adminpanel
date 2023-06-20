@@ -1,3 +1,11 @@
+
+<?php 
+    if(isset($_GET['logout'])){
+        session_destroy();
+        header("location: login.php");
+    }
+?>
+
 <nav id="sidebar">
     <div class="sidebar-content">
         <div class="content-header justify-content-lg-center">
@@ -19,10 +27,10 @@
                 <div class="smini-hidden text-center mx-auto">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
-                            <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="index.php">Admin</a>
+                            <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="index.php"><?php echo $admin['name'];?></a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="link-fx text-dual" href="login.php">
+                            <a class="link-fx text-dual" href="?logout=true">
                                 <i class="fa fa-sign-out-alt"></i>
                             </a>
                         </li>
