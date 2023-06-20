@@ -1,3 +1,16 @@
+
+<?php 
+    include "includes/db.php";
+    if(!isset($_SESSION['admin'])){
+        header("location: login.php");
+    }else{
+        $id = $_SESSION['admin'];
+    $sql = "select * from admins where id = '$id'";
+    $r = $conn->query($sql);
+    $admin = mysqli_fetch_assoc($r);
+    }
+?>
+
 <!doctype html>
 <html lang="en">
 
